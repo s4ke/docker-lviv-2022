@@ -91,8 +91,6 @@ This should again something like this on your shell:
 The following requires Docker to be installed on your machine.
 If not done already, follow the tutorial at https://docs.docker.com/engine/install/ubuntu/
 
-## Taking Docker for a spin
-
 ## Build the docker image
 
 As we want a self contained docker image for our AI based REST service, we have to
@@ -129,6 +127,72 @@ This should again something like this on your shell:
 
 When you are done testing, don't forget to stop the docker container by hitting `CTRL-C`.
 
+# Docker Swarm
+
+This is not a full Docker Swarm tutorial. This is just here to give an idea
+of how to scale out Docker services. Real production clusters need an ingress (e.g. Traefik),
+possibly encrypted ingress networks, and are usually not managed via
+cli, but instead via stack files.
+
+## Create the Cluster
+
+To scale out our deployment of the AI service, we use Docker Swarm - a built-in
+clustering technology in Docker.
+
+First, we initialize our single node swarm:
+
+```bash
+docker swarm init
+```
+
+This will initialize a docker swarm. In production you would now add more nodes to the cluster,
+but for the sake of this tutorial, we don't need more nodes. The commands will all be the same.
+
+## Create a service
+
+We can now create our AI service in the Docker swarm.
+
+```bash
+docker service create --name myai_service --publish 4000:4000 none.local/myai:latest
+```
+
+By default, this creates a service with 1 replica. We can again test it via another shell in the `test` directory:
+
+```bash
+bash run_request.sh img/8.bmp
+```
+
+To see the logs, we can run:
+
+```bash
+docker service logs myai_service
+```
+
+If for whatever reason the single application can not handle all the requests, we could scale out our application by running:
+
+```bash
+docker service scale myai_service=3
+```
+
+This will create two extra replicas of our service. Load will be shared among all replicas via Docker Swarm's built in
+load balancing. In a multinode environment Docker Swarm would also try to spread the containers across all nodes of the cluster.
+Because of Docker Swarms routing, it does not even matter which Node things are running on. Any physical node
+is able to serve requests on port 4000, even if no replica ended up on the node.
+
+
+Note: In production, we would not use a locally built image. For this,
+we would `docker push` the image after building. This is however not part of this
+tutorial. As we are running the service creation on the same node we built the image on,
+the service will be created successfully nonetheless.
+
+## Cleanup
+
+Once finished, we can force leave the swarm with (This will destroy your single node swarm):
+
+```bash
+docker swarm leave -f
+```
+
 # Self-Study Questions
 
 1. What is the purpose of the Flask DEV Server?
@@ -144,6 +208,7 @@ with docker concepts like volumes, image layer caching in Docker, ...
 2. Why do we `COPY` the requirements.txt before the rest of the application?
 3. How could we remove the sklearn dependency in production that we only need for training the AI?
 4. How could we use docker even during development? (Hint: development containers, docker-compose)
+5. How does load balancing work in Docker Swarm?
 
 # Additional resources
 
