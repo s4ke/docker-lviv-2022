@@ -142,7 +142,8 @@ with docker concepts like volumes, image layer caching in Docker, ...
 
 1. How could we replace the weights of the application in production without rebuilding the whole container?
 2. Why do we `COPY` the requirements.txt before the rest of the application?
-3. How could we use docker even during development? (Hint: development containers, docker-compose)
+3. How could we remove the sklearn dependency in production that we only need for training the AI?
+4. How could we use docker even during development? (Hint: development containers, docker-compose)
 
 # Additional resources
 
