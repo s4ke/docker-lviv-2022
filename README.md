@@ -2,7 +2,7 @@
 
 This repository contains the code for the workshop at Lviv AI Summer School 2022.
 
-# Steps
+# A REST API for an AI
 
 The following makes havy use of utility bash scripts. This is good practice
 when developing large applications as we don't have to remember commands by heart.
@@ -84,6 +84,15 @@ This should again something like this on your shell:
 {"class":"8"}
 ```
 
+# Docker
+
+## Install Docker on your machine
+
+The following requires Docker to be installed on your machine.
+If not done already, follow the tutorial at https://docs.docker.com/engine/install/ubuntu/
+
+## Taking Docker for a spin
+
 ## Build the docker image
 
 As we want a self contained docker image for our AI based REST service, we have to
@@ -134,3 +143,7 @@ with docker concepts like volumes, image layer caching in Docker, ...
 1. How could we replace the weights of the application in production without rebuilding the whole container?
 2. Why do we `COPY` the requirements.txt before the rest of the application?
 3. How could we use docker even during development? (Hint: development containers, docker-compose)
+
+# Additional resources
+
+Youtube Video: [Learn Docker in 7 Easy Steps - Full Beginner's Tutorial](https://www.youtube.com/watch?v=gAkwW2tuIqE)

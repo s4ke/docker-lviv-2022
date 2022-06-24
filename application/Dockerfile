@@ -13,6 +13,8 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
+EXPOSE 4000
+
 RUN chmod +x run.sh
 
 CMD ["/app/run.sh"]
