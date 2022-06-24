@@ -1,0 +1,7 @@
+Flask==2.1.2
+gunicorn==20.1.0
+tensorflow==2.9.1
+Pillow==9.1.1
+# just for the datasets
+sklearn==0.0
+numpy==1.23.0

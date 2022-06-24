@@ -1,0 +1,1 @@
+FLASK_APP=api python3 -m flask run --port 4000
