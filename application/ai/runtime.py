@@ -3,6 +3,10 @@ from PIL import Image
 from ai.model import get_model
 from os import path
 
+module_dir = path.dirname(path.realpath(__file__))
+model = get_model()
+model.load_weights(path.join(module_dir, '..', 'weights', 'trained'))
+
 def pixels_to_greyscale(data):
     if len(data) > 0:
         pixel = data[0]
@@ -48,7 +52,3 @@ def classify(image_file):
     return {
         "class": str(prediction[0].argmax())
     }
-
-module_dir = path.dirname(path.realpath(__file__))
-model = get_model()
-model.load_weights(path.join(module_dir, '..', 'weights', 'trained'))
