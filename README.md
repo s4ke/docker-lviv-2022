@@ -2,11 +2,13 @@
 
 This repository contains the code for the workshop at Lviv AI Summer School 2022.
 
-# Install Docker
+# Prerequisites
+
+## Install Docker
 
 https://docs.docker.com/engine/install/ubuntu/
 
-# Optional: Install VSCode for remote development
+## Optional: Install VSCode for remote development
 
 Install VSCode:
 
