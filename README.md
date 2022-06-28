@@ -12,7 +12,7 @@ Install VSCode:
 
 https://code.visualstudio.com/
 
-Install the SSH Remote Development plugin
+Install the SSH Remote Development plugin:
 
 https://code.visualstudio.com/docs/remote/ssh
 
