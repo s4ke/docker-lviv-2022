@@ -6,6 +6,16 @@ This repository contains the code for the workshop at Lviv AI Summer School 2022
 
 https://docs.docker.com/engine/install/ubuntu/
 
+# Optional: Install VSCode for remote development
+
+Install VSCode:
+
+https://code.visualstudio.com/
+
+Install the SSH Remote Development plugin
+
+https://code.visualstudio.com/docs/remote/ssh
+
 # A REST API for an AI
 
 The following makes havy use of utility bash scripts. This is good practice
