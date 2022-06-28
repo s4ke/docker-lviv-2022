@@ -38,6 +38,16 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
+## Build the AI
+
+In the file `application/ai/model.py`, build an AI using the keras library.
+You can adapt this file to your liking, but the existing model works okay.
+
+See https://keras.io/api/layers/ for more documentation on the available layers.
+
+You can go to the next step to see how we can train the AI for evaluation of whether
+we are doing a good job.
+
 ## Train the AI
 
 In order for our API to have proper weights, we have to first generate the weights.
