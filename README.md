@@ -32,6 +32,7 @@ On your command line, switch to the application directory.
 Next, we have to setup our development environment. For this we run the following:
 
 ```bash
+apt-get update && apt-get install -y python3.8-venv
 bash create_venv.sh
 source venv/bin/activate
 pip3 install -r requirements.txt
