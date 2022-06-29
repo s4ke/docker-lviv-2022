@@ -33,6 +33,7 @@ Next, we have to setup our development environment. For this we run the followin
 
 ```bash
 apt-get update && apt-get install -y python3.8-venv
+git clone https://github.com/s4ke/docker-lviv-2022
 cd docker-lviv-2022/application
 bash create_venv.sh
 source venv/bin/activate
