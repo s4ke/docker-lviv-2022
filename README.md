@@ -113,6 +113,11 @@ This should again something like this on your shell:
 
 # Docker
 
+Note: if you get a permission denied error during this workshop, check if the command works with a `sudo` in front of it.
+This is due to Docker by default only working for the root user for security reasons. The only alternative would
+be creating a new user group `docker` on the machine and adding your user to that group. For the sake
+of brevity in this workshop, using `sudo` is fine, though.
+
 ## Install Docker on your machine
 
 The following requires Docker to be installed on your machine.
@@ -169,7 +174,7 @@ clustering technology in Docker.
 First, we initialize our single node swarm:
 
 ```bash
-docker swarm init
+sudo docker swarm init
 ```
 
 This will initialize a docker swarm. In production you would now add more nodes to the cluster,
@@ -180,7 +185,7 @@ but for the sake of this tutorial, we don't need more nodes. The commands will a
 We can now create our AI service in the Docker swarm.
 
 ```bash
-docker service create --name myai_service --publish 4000:4000 none.local/myai:latest
+sudo docker service create --name myai_service --publish 4000:4000 none.local/myai:latest
 ```
 
 By default, this creates a service with 1 replica. We can again test it via another shell in the `test` directory:
@@ -192,13 +197,13 @@ bash run_request.sh img/8.bmp
 To see the logs, we can run:
 
 ```bash
-docker service logs myai_service
+sudo docker service logs myai_service
 ```
 
 If for whatever reason the single application can not handle all the requests, we could scale out our application by running:
 
 ```bash
-docker service scale myai_service=3
+sudo docker service scale myai_service=3
 ```
 
 This will create two extra replicas of our service. Load will be shared among all replicas via Docker Swarm's built in
@@ -217,7 +222,7 @@ the service will be created successfully nonetheless.
 Once finished, we can force leave the swarm with (This will destroy your single node swarm):
 
 ```bash
-docker swarm leave -f
+sudo docker swarm leave -f
 ```
 
 # Self-Study Questions
