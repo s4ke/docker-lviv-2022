@@ -35,7 +35,7 @@ Next, we have to setup our development environment. For this we run the followin
 apt-get update && apt-get install -y python3.8-venv
 bash create_venv.sh
 source venv/bin/activate
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt --no-cache-dir
 ```
 
 ## Build the AI
@@ -124,7 +124,7 @@ As we want a self contained docker image for our AI based REST service, we have 
 build a docker image. To do so, inside the `application` folder we run:
 
 ```
-bash build.sh
+sudo bash build.sh
 ```
 
 This will run the appropriate docker cli command to build a docker image with our
@@ -135,7 +135,7 @@ AI.
 Inside the `test` folder, we have a script `start_test_docker.sh`. We run it with:
 
 ```bash
-bash start_test_docker.sh
+sudo bash start_test_docker.sh
 ```
 
 Then, on another shell, we can run the test request in side the `test` directory again:
