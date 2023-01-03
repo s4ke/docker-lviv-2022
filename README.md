@@ -187,7 +187,7 @@ but for the sake of this tutorial, we don't need more nodes. The commands will a
 We can now create our AI service in the Docker swarm.
 
 ```bash
-sudo docker service create --name myai_service --publish 4000:4000 none.local/myai:latest
+docker service create --name myai_service --publish 4000:4000 none.local/myai:latest
 ```
 
 By default, this creates a service with 1 replica. We can again test it via another shell in the `test` directory:
@@ -199,13 +199,13 @@ bash run_request.sh img/8.bmp
 To see the logs, we can run:
 
 ```bash
-sudo docker service logs myai_service
+docker service logs myai_service
 ```
 
 If for whatever reason the single application can not handle all the requests, we could scale out our application by running:
 
 ```bash
-sudo docker service scale myai_service=3
+docker service scale myai_service=3
 ```
 
 This will create two extra replicas of our service. Load will be shared among all replicas via Docker Swarm's built in
@@ -224,7 +224,7 @@ the service will be created successfully nonetheless.
 Once finished, we can force leave the swarm with (This will destroy your single node swarm):
 
 ```bash
-sudo docker swarm leave -f
+docker swarm leave -f
 ```
 
 # Self-Study Questions
