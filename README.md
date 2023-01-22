@@ -187,7 +187,7 @@ but for the sake of this tutorial, we don't need more nodes. The commands will a
 We can now create our AI service in the Docker swarm.
 
 ```bash
-docker service create --name myai_service --publish 4000:4000 none.local/myai:latest
+docker service create --name myai_service --publish 4000:4000 ghcr.io/s4ke/docker-lviv-2022:main
 ```
 
 By default, this creates a service with 1 replica. We can again test it via another shell in the `test` directory:
