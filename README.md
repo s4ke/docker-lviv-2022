@@ -20,6 +20,12 @@ https://docs.docker.com/engine/install/ubuntu/
 
 # Notes
 
+First, check if Python is installed on your system:
+
+```bash
+python3 --version
+```
+
 If you don't have Python installed, you can install it with this command on Ubuntu:
 
 ```
