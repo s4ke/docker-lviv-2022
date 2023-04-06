@@ -18,6 +18,14 @@ https://code.visualstudio.com/docs/remote/ssh
 
 https://docs.docker.com/engine/install/ubuntu/
 
+# Notes
+
+If you don't have Python installed, you can install it with this command on Ubuntu:
+
+```
+apt-get update && apt-get install -y python3.8-venv
+```
+
 # A REST API for an AI
 
 The following makes havy use of utility bash scripts. This is good practice
@@ -32,7 +40,6 @@ On your command line, switch to the application directory.
 Next, we have to setup our development environment. For this we run the following:
 
 ```bash
-apt-get update && apt-get install -y python3.8-venv
 git clone https://github.com/s4ke/docker-lviv-2022
 cd docker-lviv-2022/application
 bash create_venv.sh
@@ -131,7 +138,7 @@ As we want a self contained docker image for our AI based REST service, we have 
 build a docker image. To do so, inside the `application` folder we run:
 
 ```
-sudo bash build.sh
+bash build.sh
 ```
 
 This will run the appropriate docker cli command to build a docker image with our
@@ -142,7 +149,7 @@ AI.
 Inside the `test` folder, we have a script `start_test_docker.sh`. We run it with:
 
 ```bash
-sudo bash start_test_docker.sh
+bash start_test_docker.sh
 ```
 
 Then, on another shell, we can run the test request in side the `test` directory again:
@@ -176,7 +183,7 @@ clustering technology in Docker.
 First, we initialize our single node swarm:
 
 ```bash
-sudo docker swarm init
+docker swarm init
 ```
 
 This will initialize a docker swarm. In production you would now add more nodes to the cluster,
